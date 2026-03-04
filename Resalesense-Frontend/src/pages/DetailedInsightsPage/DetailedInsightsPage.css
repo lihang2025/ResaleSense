@@ -1,0 +1,419 @@
+/* resalesense-frontend/src/pages/DetailedInsightsPage/DetailedInsightsPage.css */
+
+/* --- 1. Main Page Layout --- */
+.page-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* --- 2. Shared Two-Column Grid --- */
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column on mobile */
+  gap: 2rem;
+}
+
+/* Two columns on desktop */
+@media (min-width: 1024px) {
+  .main-grid {
+    /* Left column is slightly narrower */
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 2fr);
+  }
+}
+
+.details-column-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.details-column-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* --- 3. Page Header --- */
+.details-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+  gap: 1rem;
+}
+
+.details-page-header h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.details-page-header .timestamp {
+  margin: 0.25rem 0 0 0;
+  color: var(--muted-foreground);
+}
+
+/* --- 4. PropertyDetailsCard (in SinglePropertyView) --- */
+.details-map-container {
+  height: 250px;
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--border);
+}
+
+.details-map-unavailable {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted-foreground);
+}
+
+.details-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.details-header h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.bookmark-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: var(--muted-foreground);
+}
+.bookmark-button:disabled {
+  cursor: not-allowed;
+}
+.bookmark-button:not(:disabled):hover {
+  color: var(--primary);
+}
+.bookmark-button .bookmarked-icon {
+  color: var(--primary);
+  fill: var(--primary);
+}
+
+.details-text-block {
+  color: var(--muted-foreground);
+  margin-top: 0.5rem;
+  line-height: 1.6;
+}
+.details-text-block strong {
+  color: var(--foreground);
+  font-weight: 500;
+}
+
+/* --- 5. Community Valuation (in SinglePropertyView) --- */
+.valuation-card-header {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.valuation-card-subheader {
+  color: var(--muted-foreground);
+  margin-bottom: 1.5rem;
+}
+.vote-button-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .vote-button-group {
+    flex-direction: row;
+    gap: 1rem;
+  }
+}
+
+.vote-button-group .button-outline {
+  flex: 1;
+}
+
+/* --- 6. AreaView Specifics --- */
+.area-view-header {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem; /* Reduced margin */
+  text-align: center;
+}
+.area-view-timestamp {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 2.5rem; /* Increased margin */
+  color: var(--muted-foreground);
+}
+
+.property-list-item-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  transition: box-shadow 0.2s;
+}
+.property-list-item-link:hover {
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
+}
+.property-list-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.property-list-item-header h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0;
+}
+.property-list-item-header span {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+.property-list-item-price {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--primary); /* Use primary color for price */
+  margin-top: 0.5rem;
+}
+.property-list-item-details {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}
+.pagination-controls {
+  margin-top: 2rem;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* --- 7. PredictionTool Specifics --- */
+.prediction-header {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem 0;
+}
+.prediction-price {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin: 0;
+}
+.prediction-base-value {
+  margin-top: 0.5rem;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}
+
+/* --- 8. CommunityDiscussion Specifics --- */
+.comment-form {
+  margin-bottom: 2rem;
+}
+.comment-info-box {
+  color: var(--muted-foreground);
+  text-align: center;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+}
+.comment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.comment-card {
+  /* .card is applied, just adding padding */
+  padding: 1rem;
+}
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.comment-author {
+  font-weight: 600;
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.comment-vote {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+}
+.comment-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.comment-date {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin: 0;
+}
+.comment-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+.comment-action-button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  font-size: 0.8rem;
+  text-decoration: underline;
+}
+.comment-action-button:hover {
+  color: var(--primary);
+}
+.comment-body {
+  margin: 0 0 0.5rem 0;
+}
+.comment-adjustment {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #4b5563; /* A slightly darker muted color */
+  font-style: italic;
+}
+.comment-edit-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+
+/* --- 9. Loading/Error States --- */
+.page-loading,
+.page-error {
+  text-align: center;
+  padding: 4rem 1rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+.page-error {
+  color: var(--destructive);
+  background-color: var(--destructive-bg);
+  border: 1px solid var(--destructive);
+  border-radius: var(--radius-md);
+}
+.valuation-card-header.with-tooltip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Pushes icon to the right */
+  margin-bottom: 1rem; /* Keep existing margin */
+}
+
+/* The container for the icon and its popup box */
+.tooltip-container {
+  position: relative; /* This is the anchor for the tooltip-box */
+  display: flex;
+  align-items: center;
+}
+
+.tooltip-icon {
+  color: var(--muted-foreground);
+  cursor: help; /* Show 'help' cursor on hover */
+  margin-left: 0.5rem; /* Space from title */
+}
+
+/* The tooltip box, hidden by default */
+.tooltip-box {
+  display: none;
+  position: absolute;
+  /* --- CHANGED --- */
+  top: 130%;   /* Position it BELOW the icon */
+  bottom: auto; /* Remove the old 'bottom' rule */
+  /* --- END CHANGE --- */
+  right: 0;
+  width: 320px;
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  z-index: 10;
+  font-size: 0.875rem;
+  font-weight: 400;
+  text-align: left;
+  line-height: 1.5;
+  color: var(--foreground);
+}
+
+/* Show the tooltip box when the container (icon) is hovered */
+.tooltip-container:hover .tooltip-box {
+  display: block;
+}
+
+/* Styles for the content *inside* the tooltip */
+.tooltip-box strong {
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--foreground);
+}
+
+.tooltip-box p {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.tooltip-box ul {
+  margin: 0;
+  padding-left: 1rem; /* Indent list */
+  list-style: none; /* Remove default bullets */
+}
+
+.tooltip-box li {
+  position: relative;
+  margin-bottom: 0.5rem;
+  padding-left: 0.25rem;
+}
+
+/* Custom "bullets" with colors */
+.tooltip-box li::before {
+  content: '■'; /* Square bullet */
+  position: absolute;
+  left: -1rem;
+  top: 0.1rem;
+  font-size: 0.8rem;
+}
+
+/* Color helper classes */
+.tooltip-box .text-green,
+.tooltip-box li.text-green::before {
+  color: #16a34a; /* Tailwind green-600 */
+}
+.tooltip-box .text-red,
+.tooltip-box li.text-red::before {
+  color: var(--destructive); /* Tailwind red-500 */
+}
+.tooltip-box .text-gray,
+.tooltip-box li.text-gray::before {
+  color: var(--muted-foreground); /* Tailwind gray-500 */
+}
+
+.tooltip-box .text-green strong,
+.tooltip-box .text-red strong,
+.tooltip-box .text-gray strong {
+  color: inherit; /* Make <strong> inside <li> inherit the color */
+  display: inline;
+  margin-bottom: 0;
+}

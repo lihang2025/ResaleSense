@@ -1,0 +1,90 @@
+/* resalesense-frontend/src/pages/ComparePage/ComparePage.css */
+
+.compare-map-container {
+  height: 400px;
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border);
+}
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 column on mobile */
+  gap: 1.5rem;
+}
+
+/* 2 columns on tablet */
+@media (min-width: 768px) {
+  .compare-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --- UPDATED: 3 columns on desktop --- */
+@media (min-width: 1280px) {
+  .compare-grid {
+    /* This will now be a fixed 3-column grid */
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.compare-card {
+  /* Uses .card style by default */
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Makes cards in a row equal height */
+}
+
+.compare-card-header {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.compare-card-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.compare-card-body {
+  flex-grow: 1; /* Pushes the buttons to the bottom */
+}
+
+.compare-card-body p {
+  margin: 0.5rem 0;
+  color: var(--muted-foreground);
+  font-size: 0.9rem;
+}
+
+.compare-card-body p strong {
+  color: var(--foreground);
+  font-weight: 500;
+  min-width: 100px;
+  display: inline-block;
+}
+
+.compare-card-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.compare-section-divider {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.compare-section-title {
+  font-size: 0.8125rem; /* text-xs */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted-foreground);
+  text-align: center;
+  margin-bottom: 1rem;
+}

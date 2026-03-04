@@ -1,0 +1,56 @@
+/* resalesense-frontend/src/pages/CreateRemarkPage/CreateRemarkPage.css */
+
+.remark-page-wrapper {
+  max-width: 600px;
+  margin: 4rem auto;
+}
+
+.remark-card {
+  /* .card is applied globally, we just add padding */
+  padding: 2rem 2.5rem;
+}
+
+.remark-header {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.remark-subheader {
+  text-align: center;
+  color: var(--muted-foreground);
+  margin-top: 0.5rem;
+}
+
+.remark-subheader strong {
+  color: var(--foreground);
+}
+
+.remark-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.slider-value-input {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.slider-range-input {
+  /* Use slider-root from filters, just adjust sizing */
+  padding: 0;
+  width: 100%;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+  margin-top: 0.25rem;
+}

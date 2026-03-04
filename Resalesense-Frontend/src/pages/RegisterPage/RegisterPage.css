@@ -1,0 +1,40 @@
+/* resalesense-frontend/src/pages/RegisterPage/RegisterPage.css */
+
+/* This rule is now more specific and will apply the bold weight */
+.login-card .register-title {
+  text-align: center;
+  font-size: 1.75rem; 
+  font-weight: 700; /* or font-weight: bold; */
+  color: var(--foreground);
+  margin-top: 0;
+  margin-bottom: 0.5rem; 
+}
+
+/* ... (rest of your file) ... */
+
+.register-subtitle {
+  text-align: center;
+  font-size: 0.875rem; /* text-sm */
+  color: #6b7280; /* text-muted-foreground */
+  margin-bottom: 2rem; /* space between subtitle and form */
+}
+
+.login-link-text {
+  /* This styles the "Already have an account?" text */
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.login-link-text a {
+  /* This styles the "Log in" link part */
+  color: var(--primary);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.login-link-text a:hover {
+  text-decoration: underline;
+}
+

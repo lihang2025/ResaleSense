@@ -1,0 +1,18 @@
+{
+  "name": "resalesense-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install-all": "npm install && npm run install-backend && npm run install-frontend",
+    "install-backend": "cd ResaleSense-Backend && npm install",
+    "install-frontend": "cd resalesense-frontend && npm install --legacy-peer-deps",
+    "start": "concurrently \"npm run start-backend\" \"npm run start-frontend\" \"npm run start-python\"",
+    "start-backend": "cd ResaleSense-Backend && node index.js",
+    "start-frontend": "cd resalesense-frontend && npm start",
+    "start-python": "cd ResaleSense-Prediction-Service && .\\venv\\Scripts\\activate && python server.py",
+    "seed-db": "cd ResaleSense-Backend && node seed.js"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

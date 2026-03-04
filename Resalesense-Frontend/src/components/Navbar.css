@@ -1,0 +1,304 @@
+/* resalesense-frontend/src/components/Navbar.css */
+
+/* 1. Add the font import for the brand logo */
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+
+/* --- (All your existing styles are unchanged) --- */
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--border, #e5e7eb);
+  padding: 0 1rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+@media (min-width: 768px) {
+  .navbar {
+    padding: 0 1.5rem;
+  }
+}
+.navbar-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.navbar-brand {
+  text-decoration: none;
+}
+.navbar-brand-styled {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0;
+}
+.navbar-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #4b5563;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.nav-link:hover {
+  color: #111827;
+}
+.nav-link.admin-link {
+  font-weight: 700;
+  color: #059669;
+}
+.nav-link.admin-link:hover {
+  color: #047857;
+}
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+.navbar-right .auth-buttons {
+  display: flex;
+  gap: 0.75rem;
+}
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #4b5563;
+  font-weight: 500;
+}
+.nav-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+.nav-button.logout {
+  background-color: transparent;
+  border-color: #d1d5db;
+  color: #374151;
+}
+.nav-button.logout:hover {
+  background-color: #f9fafb;
+}
+.avatar {
+  position: relative;
+  display: flex;
+  height: 40px;
+  width: 40px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 9999px;
+}
+.avatar-image {
+  aspect-ratio: 1 / 1;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.avatar-fallback {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background-color: var(--secondary-bg, #f1f5f9);
+  color: var(--secondary-foreground, #0f172a);
+  font-weight: 600;
+}
+.hide-on-mobile {
+  display: none;
+}
+@media (min-width: 768px) {
+  .hide-on-mobile {
+    display: inline;
+  }
+}
+.navbar .nav-button.button,
+.navbar .nav-button.button-outline {
+  height: 28px;
+  min-height: 28px;
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+  font-size: 0.8125rem;
+}
+.nav-button.logout {
+  background-color: transparent;
+  border-color: #d1d5db;
+  color: #374151;
+}
+.nav-button.logout:hover {
+  background-color: #f9fafb;
+}
+.status-badge {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  line-height: 1.2;
+  margin-left: -0.5rem;
+}
+@media (min-width: 768px) {
+  .status-badge {
+    margin-left: 0;
+  }
+}
+.status-badge.status-verified {
+  background-color: #ecfdf5;
+  color: #065f46;
+}
+.status-badge.status-unverified {
+  background-color: #fef9c3;
+  color: #a16207;
+}
+.status-badge.status-pending {
+  background-color: #e0e7ff;
+  color: #3730a3;
+}
+.status-badge.status-flagged {
+  background-color: #fffbeb;
+  color: #b45309;
+}
+.status-badge.status-rejected,
+.status-badge.status-banned {
+  background-color: #fef2f2;
+  color: #b91c1c;
+}
+
+/* --- 8. NEW: Notification Bell Styles --- */
+
+.notification-wrapper {
+  position: relative; /* For panel positioning */
+}
+
+.notification-button {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--muted-foreground, #6b7280);
+  padding: 0.5rem; /* Make it easier to click */
+  border-radius: 9999px;
+  transition: background-color 0.2s, color 0.2s;
+}
+.notification-button:hover {
+  background-color: var(--secondary-bg, #f1f5f9);
+  color: var(--foreground, #111827);
+}
+
+.notification-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background-color: var(--destructive, #ef4444);
+  color: white;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  font-size: 0.65rem; /* 10px */
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  border: 2px solid white; /* Creates a clean border */
+}
+
+.notification-panel {
+  position: absolute;
+  top: calc(100% + 12px); /* Position below the navbar */
+  right: 0;
+  width: 350px;
+  max-height: 400px;
+  overflow-y: auto;
+  background-color: var(--background, #ffffff);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: var(--radius-md, 0.375rem);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  z-index: 1001; /* Above navbar's 1000 */
+}
+
+.notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border, #e2e8f0);
+}
+
+.notification-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.notification-mark-all {
+  background: none;
+  border: none;
+  color: var(--primary, #2563eb);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.notification-mark-all:hover {
+  text-decoration: underline;
+}
+
+.notification-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.notification-item {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border, #e2e8f0);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.notification-item:last-child {
+  border-bottom: none;
+}
+.notification-item:hover {
+  background-color: var(--secondary-bg, #f1f5f9);
+}
+.notification-item.unread {
+  background-color: #f0f9ff; /* Very light blue */
+}
+
+.notification-item p {
+  margin: 0 0 0.25rem 0;
+  font-size: 0.875rem;
+  color: var(--foreground, #111827);
+  line-height: 1.4;
+}
+
+.notification-item span {
+  font-size: 0.75rem;
+  color: var(--muted-foreground, #6b7280);
+}
+
+.notification-empty {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--muted-foreground, #6b7280);
+  font-size: 0.875rem;
+}

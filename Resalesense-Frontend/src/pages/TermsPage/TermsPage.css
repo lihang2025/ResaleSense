@@ -1,0 +1,46 @@
+.terms-page {
+  max-width: 960px;
+  margin: 2rem auto;
+}
+
+.terms-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.terms-updated {
+  font-size: 1rem;
+  text-align: center;
+  color: var(--muted-foreground);
+  margin-bottom: 3rem;
+}
+
+.terms-content {
+  padding: 2.5rem;
+}
+
+.terms-content section {
+  margin-bottom: 2rem;
+}
+
+.terms-content h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+
+.terms-content p,
+.terms-content li {
+  font-size: 1rem;
+  color: var(--foreground);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.terms-content ul {
+  padding-left: 2rem;
+}

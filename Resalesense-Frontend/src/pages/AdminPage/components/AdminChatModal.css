@@ -1,0 +1,102 @@
+/* resalesense-frontend/src/pages/AdminPage/components/AdminChatModal.css */
+
+.admin-chat-modal-overlay {
+  position: fixed; /* Cover the whole screen */
+  inset: 0; /* top, right, bottom, left = 0 */
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050; /* Ensure it's above other content like navbar */
+  padding: 1rem; /* Add padding for smaller screens */
+}
+
+.admin-chat-modal {
+  width: 100%; /* Take full width on small screens */
+  max-width: 600px; /* Limit width on larger screens */
+  height: 85vh; /* Responsive height */
+  max-height: 700px; /* Limit max height */
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background, #ffffff);
+  border-radius: var(--radius, 0.5rem);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden; /* Prevent content spilling */
+   padding: 1.5rem; /* Padding inside the modal */
+}
+
+/* --- Copied Message Styles --- */
+/* (Make sure these selectors are specific enough if needed, e.g., using .admin-chat-modal) */
+
+.admin-chat-modal .chat-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 0.5rem; /* Add some space for scrollbar */
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.admin-chat-modal .message {
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  max-width: 75%;
+  word-wrap: break-word;
+}
+
+/* User's message (shows as 'admin' style visually for the admin) */
+.admin-chat-modal .message.admin {
+  background-color: #f3f4f6; /* bg-gray-100 */
+  color: var(--foreground);
+  border-bottom-left-radius: 0;
+  align-self: flex-start;
+}
+
+/* Admin's reply (shows as 'user' style visually for the admin) */
+.admin-chat-modal .message.user {
+  background-color: var(--primary, #2563eb);
+  color: var(--primary-foreground, #ffffff);
+  border-bottom-right-radius: 0;
+  align-self: flex-end;
+}
+
+.admin-chat-modal .message-meta {
+  font-size: 0.75rem;
+  color: #9ca3af; /* text-gray-400 */
+  margin-bottom: 0.25rem;
+}
+
+/* Adjust meta color for admin's own messages */
+.admin-chat-modal .message.user .message-meta {
+  color: rgba(255, 255, 255, 0.7);
+  text-align: right;
+}
+
+/* --- End Copied Styles --- */
+
+
+/* Ensure the input area stays at the bottom */
+.admin-chat-modal .chat-input-area {
+  margin-top: auto; /* Pushes to bottom */
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  display: flex; /* Make input and button align */
+}
+
+/* Re-use input/button styles from CustomerSupportPage.css */
+.admin-chat-modal .chat-input-area .input-field {
+  flex-grow: 1;
+  margin-right: 0.5rem;
+  height: 44px;
+}
+
+.admin-chat-modal .chat-send-button {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}

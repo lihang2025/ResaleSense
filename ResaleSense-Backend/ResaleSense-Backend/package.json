@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "resalesense-backend": "file:.."
+  }
+}

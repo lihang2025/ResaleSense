@@ -1,0 +1,108 @@
+.valuation-display {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.valuation-loading {
+  text-align: center;
+  color: var(--muted-foreground);
+  margin-bottom: 1.5rem;
+}
+
+.valuation-subheader {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+/* --- The "Delta" (The Hook) --- */
+.valuation-delta {
+  margin-bottom: 1.5rem;
+}
+
+.valuation-delta .status-text {
+  font-size: 1rem;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.valuation-delta .delta-amount {
+  font-size: 2.25rem; /* 2xl */
+  font-weight: 700; /* bold */
+  line-height: 1.2;
+}
+
+/* --- Price Breakdown --- */
+.valuation-prices {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.valuation-prices > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.valuation-prices span {
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+}
+
+.valuation-prices strong {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+/* --- Status Colors --- */
+
+/* Green for "Under-valued" (Good deal) */
+.valuation-display.under-valued {
+  background-color: #f0fdf4; /* Tailwind green-50 */
+}
+.valuation-display.under-valued .delta-amount,
+.valuation-display.under-valued .status-text,
+.valuation-display.under-valued strong {
+  color: #16a34a; /* Tailwind green-600 */
+}
+
+/* Red for "Over-valued" (Bad deal) */
+.valuation-display.over-valued {
+  background-color: #fef2f2; /* Tailwind red-50 */
+}
+.valuation-display.over-valued .delta-amount,
+.valuation-display.over-valued .status-text,
+.valuation-display.over-valued strong {
+  color: var(--destructive); /* Tailwind red-500 */
+}
+
+/* Neutral / Gray for "Fair Value" */
+.valuation-display.fair-value .delta-amount,
+.valuation-display.fair-value strong {
+  color: var(--foreground);
+}
+.valuation-display.fair-value .status-text {
+  color: var(--muted-foreground);
+}
+
+/* Neutral for "Be the first" */
+.valuation-display.neutral .delta-amount {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.vote-count {
+  font-size: 0.75rem !important; /* Make it small */
+  color: var(--muted-foreground) !important;
+  font-style: italic;
+  margin-top: 2px;
+}

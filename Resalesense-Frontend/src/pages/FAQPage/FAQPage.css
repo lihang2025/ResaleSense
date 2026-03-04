@@ -1,0 +1,169 @@
+/* resalesense-frontend/src/pages/FAQPage/FAQPage.css */
+
+.faq-page {
+  max-width: 960px;
+  margin: 2rem auto;
+}
+
+.support-center-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 2rem;
+}
+
+.faq-header {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: left;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faq-item {
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
+
+.faq-question {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 0.5rem 0;
+}
+
+.faq-answer {
+  font-size: 0.9rem;
+  color: #374151;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --- "Need More Help?" Card Styles (UPDATED) --- */
+.help-card {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: 1.5rem;
+  padding: 2rem 2.5rem; /* Slightly adjusted padding */
+  margin-top: 3rem;
+  display: flex;
+  
+  /* --- THIS IS THE FIX --- */
+  flex-direction: row;    /* Always side-by-side */
+  align-items: flex-start; /* Align icon and text to the top */
+  text-align: left;       /* Text is left-aligned */
+  gap: 2rem;              /* Increased gap between icon and text */
+  /* --- END FIX --- */
+}
+
+.help-card-icon {
+  flex-shrink: 0;
+  margin-top: 0.25rem; /* Small push down to align with text */
+}
+
+.help-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align content to the left */
+  gap: 1rem;
+}
+
+.help-card-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.help-card-text {
+  font-size: 1rem;
+  color: var(--primary-foreground);
+  opacity: 0.9;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.help-card-button {
+  background-color: white;
+  color: var(--primary);
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.5rem; 
+}
+
+.help-card-button:hover {
+  background-color: #f1f5f9;
+  color: var(--primary);
+  
+  /* --- ADD THESE OVERRIDES --- */
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline-flex !important;
+}
+
+.help-card-footer-text {
+  font-size: 0.875rem;
+  color: var(--primary-foreground);
+  opacity: 0.8;
+  line-height: 1.5;
+  margin: 0.5rem 0 0 0;
+  padding-top: 1rem; /* Add padding to match screenshot */
+  border-top: 1px solid rgba(255, 255, 255, 0.3); /* Match border */
+  width: 100%; /* Make border full width */
+}
+
+/* --- "Other Ways to Reach Us" Styles --- */
+.other-reach-out {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.other-reach-out-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.other-reach-out-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .other-reach-out-links {
+    flex-direction: row;
+    gap: 3rem;
+  }
+}
+
+.other-reach-out-item {
+  font-size: 1.1rem;
+}
+.other-reach-out-item strong {
+  color: var(--foreground);
+}
+.other-reach-out-item a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 0.5rem;
+}
+.other-reach-out-item a:hover {
+  text-decoration: underline;
+}
+
+.help-card:hover .help-card-button {
+  display: inline-flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}

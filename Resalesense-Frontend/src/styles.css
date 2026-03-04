@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Find these hex codes in tailwind.config.ts */
+  --background: #ffffff; /* Example */
+  --foreground: #0f172a; /* Example */
+  --primary: #2563eb; /* Example: Primary button background */
+  --primary-foreground: #ffffff; /* Example: Text color on primary button */
+  --secondary-bg: #f1f5f9; /* Example: Secondary button background */
+  --secondary-foreground: #0f172a; /* Example: Text color on secondary button */
+  --border: #e2e8f0;    /* Example: Border color for outline/secondary */
+  --radius-md: 0.375rem; /* border-radius for buttons (rounded-md) */
+  --destructive: #ef4444; /* Example: Red for destructive actions */
+  --destructive-foreground: #ffffff; /* Example: Text on destructive */
+  --input-border: #e2e8f0;    /* Example for 'input' border color or use --border */
+  --ring: #93c5fd;         /* Example for focus ring color (blue-300) */
+  --muted-foreground: #6b7280; /* Example text color for placeholders */
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* Main container for the page */
+.page-container {
+  max-width: 1200px;
+  margin: 2rem auto; /* Center the container with space on top/bottom */
+  padding: 1rem;
+}
+
+/* The two-column grid layout */
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column on mobile */
+  gap: 2rem; /* Space between grid items */
+}
+
+/* On medium screens and up, switch to two columns */
+@media (min-width: 768px) {
+  .main-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* A reusable 'card' style for our components */
+.card {
+  /* Background and Text Color */
+  background-color: var(--card-bg, #ffffff);
+  color: var(--card-foreground, #0f172a);
+
+  /* Border and Rounded Corners */
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: var(--radius, 0.5rem);
+
+  /* Shadow */
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Equivalent to shadow-sm */
+
+  /* Padding */
+  padding: 1.5rem; /* Equivalent to p-6 */
+
+  /* Add some space below cards if they stack */
+  margin-bottom: 1rem;
+}
+
+/* Styling for section headings */
+.card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+}
+
+/* Basic button styling */
+/* --- REPLACE existing .button --- */
+/* Primary Button Style (matches 'default' variant) */
+.button {
+  display: inline-flex; /* Use flex for centering content */
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap; /* Prevent text wrapping */
+  border-radius: var(--radius-md, 0.375rem); /* Use medium radius */
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500; /* font-medium */
+  text-decoration: none; /* Remove underline from Link components */
+  cursor: pointer;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+
+  /* Specific Primary Styles */
+  background-color: var(--primary, #2563eb);
+  color: var(--primary-foreground, #ffffff);
+  border: 1px solid transparent; /* No border for solid button */
+
+  /* Padding (matches h-10 px-4 py-2 -> approx height 40px) */
+  padding: 0.5rem 1rem;
+  min-height: 40px; /* Ensure consistent height */
+  box-sizing: border-box; /* ADDED */
+}
+/* --- END REPLACEMENT --- */
+
+/* --- REPLACE existing .button-outline --- */
+/* Outline Button Style */
+.button-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  border-radius: var(--radius-md, 0.375rem);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+
+  /* Specific Outline Styles */
+  background-color: transparent; /* Or var(--background) if preferred */
+  color: var(--primary, #2563eb); /* Text color is primary */
+  border: 1px solid var(--border, #e2e8f0); /* Use border color */
+
+  /* Padding */
+  padding: 0.5rem 1rem;
+  min-height: 40px;
+  box-sizing: border-box; /* ADDED */
+}
+/* --- END REPLACEMENT --- */
+
+.button:hover {
+  /* This was overriding the .button replacement above */
+  background-color: #1d4ed8; /* Example darker blue */
+}
+
+.button:focus-visible {
+   outline: 2px solid var(--primary, #2563eb);
+   outline-offset: 2px;
+}
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.button-outline:hover {
+  background-color: var(--secondary-bg, #f1f5f9);
+}
+.button-outline:focus-visible {
+   outline: 2px solid var(--primary, #2563eb);
+   outline-offset: 2px;
+}
+.button-outline:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+.page-content {
+  flex-grow: 1; /* Allow main content to take vertical space in flex layout */
+  overflow-y: auto; /* Allow scrolling *only* for the page content */
+  background-color: var(--secondary-bg, #f1f5f9); /* Light gray background */
+  padding: 1.5rem; /* Add padding around the page content */
+}
+
+.button-small,
+.button-sm { /* Add .button-sm if you prefer */
+  /* Padding (matches h-9 px-3 -> approx height 36px) */
+  padding: 0.375rem 0.75rem; /* Smaller padding */
+  min-height: 36px;
+  font-size: 0.8125rem; /* Slightly smaller font if needed */
+  border-radius: calc(var(--radius-md, 0.375rem) - 0.1rem); /* Slightly smaller radius */
+}
+
+/* Secondary Button Style */
+.button-secondary {
+  display: inline-flex; /* etc... copy layout styles from .button */
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  border-radius: var(--radius-md, 0.375rem);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+  padding: 0.5rem 1rem;
+  min-height: 40px;
+  box-sizing: border-box; /* ADDED */
+
+  /* Specific Secondary Styles */
+  background-color: var(--secondary-bg, #f1f5f9);
+  color: var(--secondary-foreground, #0f172a);
+  border: 1px solid transparent;
+}
+ 
+.button-secondary:hover {
+   background-color: #e2e8f0; /* Example darker gray */
+ }
+.button-secondary:focus-visible {
+   outline: 2px solid var(--secondary-foreground, #0f172a);
+   outline-offset: 2px;
+}
+.button-secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --- .input-field (From LoginPage.css) --- */
+.input-field {
+  display: flex;
+  height: 40px; /* h-10 */
+  width: 100%;
+  border-radius: var(--radius-md, 0.375rem); /* rounded-md */
+  border: 1px solid var(--border, #e2e8f0);
+  background-color: var(--background, #ffffff);
+  padding: 0.5rem 0.75rem; /* px-3 py-2 */
+  font-size: 0.875rem; /* text-sm */
+  box-sizing: border-box; /* Ensure padding doesn't break layout */
+  transition: box-shadow 0.2s ease;
+}
+
+.input-field:focus-visible,
+.input-field:focus {
+  outline: 2px solid var(--primary, #2563eb);
+  outline-offset: 2px;
+  border-color: var(--primary, #2563eb);
+}
+
+.input-field:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* --- ADD NEW STYLES FOR RADIX --- */
+
+/* --- Label (from label.tsx) --- */
+.form-label {
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500; /* font-medium */
+  display: block; /* Make it a block element */
+  margin-bottom: 0.5rem;
+}
+
+/* --- Form Group (helper) --- */
+.form-group {
+  width: 100%;
+  margin-bottom: 1.25rem;
+}
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+.select-trigger {
+  display: flex;
+  height: 40px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: var(--radius-md, 0.375rem);
+  border: 1px solid var(--border, #e2e8f0);
+  background-color: var(--background, #ffffff);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  box-sizing: border-box;
+  cursor: default;
+}
+
+.select-trigger:focus {
+  outline: 2px solid var(--primary, #2563eb);
+  outline-offset: 2px;
+  border-color: var(--primary, #2563eb);
+}
+
+.select-content {
+  position: fixed; 
+  z-index: 9999; 
+  max-height: 24rem;
+  min-width: var(--radix-select-trigger-width); /* Match trigger width */
+  overflow: hidden;
+  border-radius: var(--radius-md, 0.375rem);
+  border: 1px solid var(--border, #e2e8f0);
+  background-color: var(--background, #ffffff); /* Solid background */
+  color: var(--foreground, #0f172a);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 0.25rem; /* Add padding */
+}
+
+.select-item {
+  position: relative;
+  display: flex;
+  width: 100%;
+  cursor: default;
+  user-select: none;
+  align-items: center;
+  border-radius: 0.25rem;
+  padding: 0.375rem 0.5rem 0.375rem 2rem; /* Add padding */
+  font-size: 0.875rem;
+  outline: none;
+}
+
+.select-item[data-highlighted] {
+  background-color: var(--secondary-bg, #f1f5f9);
+}
+
+.select-item-indicator {
+  position: absolute;
+  left: 0.5rem;
+  display: flex;
+  height: 14px;
+  width: 14px;
+  align-items: center;
+  justify-content: center;
+}
+
+.normal-icon {
+    color: #9ca3af; /* Gray */
+    fill: none;
+}
+button:disabled .normal-icon,
+button:disabled .bookmarked-icon {
+    color: #d1d5db; /* Lighter gray when disabled */
+    cursor: not-allowed;
+}
+
+.form-error {
+  color: var(--destructive);
+  text-align: center;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background-color: #fef2f2; /* Light red */
+  border: 1px solid var(--destructive);
+  border-radius: var(--radius-md);
+}
+
+.form-success {
+  /* color: var(--success-text); */ /* Define --success-text or use green */
+  color: #065f46; /* Green */
+  text-align: center;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  /* background-color: var(--success-bg); */ /* Define --success-bg or use light green */
+  background-color: #ecfdf5; /* Light green */
+  /* border: 1px solid var(--success-text); */ /* Define --success-text or use green */
+  border: 1px solid #065f46;
+  border-radius: var(--radius-md);
+}
